@@ -1,5 +1,5 @@
 const Procurement = require("../models/Procurement");
-const { BRANCHES, PRODUCE } = require("../constants");
+const { BRANCHES, PRODUCE } = require("./index");
 const { isAlphaNum, isAlphabetic, isMoney, isPhone, isTonnage, required } = require("../utils/validation");
 
 async function createProcurement(req, res) {
