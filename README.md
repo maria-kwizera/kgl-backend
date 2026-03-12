@@ -14,6 +14,7 @@
 4. Ensure MongoDB is running locally
 5. Start server:
    - `npm run dev`
+   - If PowerShell blocks npm scripts or nodemon fails, run: `cmd /c node server.js`
 
 Backend runs on:
 - `http://localhost:4000`

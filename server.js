@@ -4,16 +4,16 @@ const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
 const morgan = require("morgan");
-const { connectDB } = require("./config/db");   // config stays at root
-const { withAuthContext } = require("./src/middleware/auth");
-const { ensureDefaultUsers } = require("./src/services/seedUsers");
+const { connectDB } = require("./config/db");
+const { withAuthContext } = require("./middleware/auth");
+const { ensureDefaultUsers } = require("./services/seedUsers");
 
-const authRoutes = require("./src/routes/authRoutes");
-const procurementRoutes = require("./src/routes/procurementRoutes");
-const salesRoutes = require("./src/routes/salesRoutes");
-const stockRoutes = require("./src/routes/stockRoutes");
-const creditSalesRoutes = require("./src/routes/creditSalesRoutes");
-const reportRoutes = require("./src/routes/reportRoutes");
+const authRoutes = require("./routes/authRoutes");
+const procurementRoutes = require("./routes/procurementRoutes");
+const salesRoutes = require("./routes/salesRoutes");
+const stockRoutes = require("./routes/stockRoutes");
+const creditSalesRoutes = require("./routes/creditSalesRoutes");
+const reportRoutes = require("./routes/reportRoutes");
 
 const app = express();
 const port = Number(process.env.PORT || 4000);
