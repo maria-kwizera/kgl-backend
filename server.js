@@ -62,7 +62,15 @@ app.use((err, _req, res, _next) => {
 // Start server
 async function start() {
   try {
-    await connectDB(process.env.MONGODB_URI);
+    const isProduction = process.env.NODE_ENV === "production";
+    const mongoUri = process.env.MONGODB_URI;
+    const localUri = process.env.MONGODB_URI_LOCAL;
+    const selectedUri = isProduction ? mongoUri : (localUri || mongoUri);
+    if (!selectedUri) {
+      throw new Error("No MongoDB URI configured. Set MONGODB_URI (prod) or MONGODB_URI_LOCAL (local).");
+    }
+
+    await connectDB(selectedUri);
     await ensureDefaultUsers();
     app.listen(port, () => {
       console.log(`KGL backend running on http://localhost:${port}`);
